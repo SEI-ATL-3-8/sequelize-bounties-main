@@ -29,6 +29,7 @@ Here's how to proceed:
 
 ## Basic CRUD
 Make a dbTest.js file to run the following steps from. After you finish each step, you can comment it out as you move onto the next one.
+TIP: each of these requests returns a promise, so use await or .then to unpack the promise
 
 1. Make a bounty with a name of Han Solo, wantedFor of Owing Money, reward of 500000, and captured of false.
 1. Make a hunter with a name of Bobba Fett, a client of Jabba the Hut, and an active of true. 

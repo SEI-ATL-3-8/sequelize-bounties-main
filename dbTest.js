@@ -71,7 +71,7 @@ const updateData = async (table,newData,where) => {
     }
 }
 
-// updateData(models.bounty,{captured: false},{where: {captured: true, name: 'Han Solo'}});
+// updateData(models.bounty,{captured: true},{where: {captured: false, name: 'Han Solo'}});
 
 const deleteData = async (table,where) => {
     try {
@@ -85,3 +85,16 @@ const deleteData = async (table,where) => {
 
 // deleteData(models.hunter,{where: {name:'Dengar'}});
 // populateData(models.hunter,[hunters[1]]);
+
+(async () => {
+    const hanSolo = await models.bounty.findOne({where:{name: 'Han Solo'}});
+    const bobaFett = await models.hunter.findOne({where:{name: 'Boba Fett'}});
+    const dengar = await models.hunter.findOne({where:{name: 'Dengar'}});
+    // const addBoba = await hanSolo.addHunters(bobaFett);
+    const hanSoloHunters = await hanSolo.getHunters();
+    // const bobaFettBounty = await bobaFett.getBounty();
+    // const addDengar = await hanSolo.addHunter(dengar);
+    const dengarBounty = await dengar.getBounty();
+    // console.log(dengarBounty);
+    console.log(hanSoloHunters);
+})();

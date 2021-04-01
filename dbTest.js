@@ -1,4 +1,5 @@
 const { bounty, hunter } = require('./models');
+// Basic CRUD
 //1.
 bounty.create({
     name: 'Han Solo',
@@ -76,3 +77,107 @@ hunter.create({
     client: 'Mercurial Swift',
     active: false
 })
+
+// Using Association
+
+//1.
+
+const linkHanAndBobba = async () => {
+    const hanSolo = await bounty.findOne({
+        where: {
+            name: 'Han Solo'
+        }
+    })
+
+    const bobbaFett = await hunter.findOne({
+        where: {
+            name: 'Bobba Fett'
+        }
+    })
+    hanSolo.addHunters(bobbaFett)
+}
+
+linkHanAndBobba()
+
+//2.
+
+const hanHunters = async () => {
+    const hanSolo = await bounty.findOne({
+        where: {
+            name: 'Han Solo'
+        }
+    })
+
+    const hanHunters = await hanSolo.getHunters();
+    console.log(hanHunters);
+}
+
+hanHunters();
+
+//3.
+
+const bobbaBounty = async () => {
+    const bobbaFett = await hunter.findOne({
+        where: {
+            name: 'Bobba Fett'
+        }
+    })
+
+    const bobbaBounty = await bobbaFett.getBounty();
+    console.log(bobbaBounty);
+}
+
+bobbaBounty()
+
+//4. 
+
+const addDengarToHan = async () => {
+    const hanSolo = await bounty.findOne({
+        where: {
+            name: 'Han Solo'
+        }
+    })
+
+    const dengar = await hunter.findOne({
+        where: {
+            name: 'Dengar'
+        }
+    })
+    hanSolo.addHunters(dengar)
+}
+
+addDengarToHan()
+
+//5.
+const hanHunters = async () => {
+    const hanSolo = await bounty.findOne({
+        where: {
+            name: 'Han Solo'
+        }
+    })
+
+    const hanHunters = await hanSolo.getHunters();
+    console.log(hanHunters);
+}
+
+hanHunters();
+
+//6.
+
+const dengarBounty = async () => {
+    const dengar = await hunter.findOne({
+        where: {
+            name: 'Dengar'
+        }
+    })
+
+    const dengarBounty = await dengar.getBounty();
+    console.log(dengarBounty);
+}
+
+dengarBounty()
+
+
+
+
+

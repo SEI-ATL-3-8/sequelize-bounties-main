@@ -8,7 +8,7 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-     await queryInterface.addColumn('hunters', 'bountyId', { type: Sequelize.DataTypes.INTEGER })
+     queryInterface.addColumn('hunters', 'bountyId', { type: Sequelize.DataTypes.INTEGER })
   },
 
   down: async (queryInterface, Sequelize) => {

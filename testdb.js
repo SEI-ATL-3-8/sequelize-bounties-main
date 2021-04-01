@@ -61,8 +61,8 @@ async function findHanSolo(){
     const hanSolo = await models.bounty.findOne({where:{name: "Han Solo"}})
     const bobbaFett = await models.hunter.findOne({where:{name: "Bobba Fett"}})
     const dengar = await models.hunter.findOne({where:{name: "Dengar"}})
-    hanSolo.addHunters(bobbaFett)
-    hanSolo.addHunters(dengar)
+    hanSolo.addHunter(bobbaFett)
+    hanSolo.addHunter(dengar)
   }
 
 findHanSolo()
@@ -71,7 +71,7 @@ findHanSolo()
 async function findHanSoloHunters(){
     const hanSolo = await models.bounty.findOne({where:{name: "Han Solo"}})
     const hunt = await hanSolo.getHunters()
-    console.log(hunt.name ,"hunters")
+    console.log(hunt.name ,"hunter")
 }
 
 findHanSoloHunters()

@@ -10,13 +10,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      models.hunter.belongsTo(models.bounty)
     }
   };
   hunter.init({
     name: DataTypes.TEXT,
     client: DataTypes.TEXT,
-    active: DataTypes.BOOLEAN
+    active: DataTypes.BOOLEAN,
+    bountyId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'hunter',

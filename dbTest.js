@@ -46,34 +46,34 @@ const { Op } = require('sequelize')
 //     captured: false
 // })
 
-// hunter.create({
-//     name: 'Boba Fett',
-//     client: 'Jabba the Hut',
-//     active: true
-// })
+hunter.create({
+    name: 'Boba Fett',
+    client: 'Jabba the Hut',
+    active: true
+})
 hunter.findOrCreate({
     where: {name: 'Dengar'},
     defaults: {client: 'Mercurial Swift',active: false}
 })
 
-// #4
-bounty.findAll().then(res => {
-    res.forEach(el => console.log(el.dataValues, '#4'))
-})
+// // #4
+// bounty.findAll().then(res => {
+//     res.forEach(el => console.log(el.dataValues, '#4'))
+// })
 
-// #5
-hunter.findAll({
-    where: {active: true}
-}).then(res => {
-    res.forEach(el => console.log(el.dataValues, '#5'))
-})
+// // #5
+// hunter.findAll({
+//     where: {active: true}
+// }).then(res => {
+//     res.forEach(el => console.log(el.dataValues, '#5'))
+// })
 
-// #6
-bounty.findOne({
-    where: {name:{[Op.iLike]:'%han%'}}
-}).then(res => {
-    res.update({captured: true})
-})
+// // #6
+// bounty.findOne({
+//     where: {name:{[Op.iLike]:'%han%'}}
+// }).then(res => {
+//     res.update({captured: true})
+// })
 
 // #7
 // hunter.findOne({
@@ -81,3 +81,14 @@ bounty.findOne({
 //         name: 'Dengar'
 //     }
 // }).then(res => res.destroy())
+
+// ASSOCIATIONS
+// ========================================
+
+// #1
+// const numOne = async () => {
+//     const x = await bounty.findOne({where:{name:{[Op.iLike]:'%Han%'}}})
+//     const y = await hunter.findOne({where:{name:'Boba Fett'}})
+//     x.addHunter(y)
+// }
+// numOne().then(res => console.log(res))

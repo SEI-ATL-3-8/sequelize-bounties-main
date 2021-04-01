@@ -66,7 +66,7 @@ findActiveHunters() */
 
 // 6. Modify Han Solo to have a captured of true.
 
-let hanSoloCarbonite = async () => {
+/* let hanSoloCarbonite = async () => {
     try {
         let hanSoloNoo = await models.bounty.findOne({
             where: {
@@ -81,4 +81,40 @@ let hanSoloCarbonite = async () => {
         console.log(error.message)
     }
 }
-hanSoloCarbonite()
+hanSoloCarbonite() */
+
+// 7. Delete Dengar. Nobody remembers this guy anyway.
+
+/* let dengarBye = async () => {
+    try {
+        let dengar = await models.hunter.findOne({
+            where: {
+                name: 'Dengar'
+            }
+        })
+        dengar.destroy()
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+dengarBye() */
+
+// 8. Ok recreate Dengar. The deletion was just for practice. We'll actually need him later.
+// Reusing the code from question 3
+
+let dengarCheck = async () => {
+    try {
+        let dengar = await models.hunter.findOrCreate({
+            where: {
+                name: 'Dengar',
+                client: 'Mercurial Swift',
+                active: false
+            }
+        })
+        console.log(dengar)
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+dengarCheck()

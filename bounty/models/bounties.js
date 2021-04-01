@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class bounties extends Model {
+  class bounty extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     captured: DataTypes.BOOLEAN
   }, {
     sequelize,
-    modelName: 'bounties',
+    modelName: 'bounty',
   });
-  return bounties;
+  return bounty;
 };

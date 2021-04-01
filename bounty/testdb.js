@@ -7,6 +7,13 @@ const models = require('./models')
 //     captured: false
 // })
 
+// models.bounty.create({
+//     name: 'test name',
+//     wantedFor: 'test wanted',
+//     reward: 00000,
+//     captured: false
+// })
+
 // models.hunter.create({
 //     name: 'Boba Fett',
 //     client: 'Jaba the Hut',
@@ -20,12 +27,14 @@ const models = require('./models')
 
 // })
 
+
+
 // const allBounty = models.bounty.findAll().then((allBounties) => {
 //     console.log(allBounty)
 // })
 
 const allBounty = async () => {
-    const foundBounty = await models.bounty.findAll({})
+    const foundBounty = await models.bounty.findAll()
     console.log(foundBounty)
 }
 
@@ -41,33 +50,33 @@ allBounty();
 // 4. Find all bounties, assign them to a variable, and console.log them.
 // 5. Find all hunters with active = true, assign them to a variable, and console.log them.
 
-models.hunters.findAll().then(res => {
-    console.log(res)
-    let huntersArr = res
-    for(let hunter of huntersArr) {
-        console.log(owner.dataValues.active)
-    }
-})
+// models.hunters.findAll().then(res => {
+//     console.log(res)
+//     let huntersArr = res
+//     for(let hunter of huntersArr) {
+//         console.log(owner.dataValues.active)
+//     }
+// })
 
 // 6. Modify Han Solo to have a captured of true.
-    let updateHan = async () => {
-        let han = await models.owner.findOne({
-            where: {
-                name: 'Han'
-            }
-        })
-        console.log(jane)
-        han.update({
-            captured: true
-        })
-    }
+    // let updateHan = async () => {
+    //     let han = await models.owner.findOne({
+    //         where: {
+    //             name: 'Han'
+    //         }
+    //     })
+    //     console.log(jane)
+    //     han.update({
+    //         captured: true
+    //     })
+    
 // 7. Delete Dengar. Nobody remembers this guy anyway.
 
-models.destroy({
-    where: {
-        name: 'Dengar'
-    }
-})
+// models.destroy({
+//     where: {
+//         name: 'Dengar'
+//     }
+// })
 
 // 8. Ok recreate Dengar. The deletion was just for practice. We'll actually need him later.
 

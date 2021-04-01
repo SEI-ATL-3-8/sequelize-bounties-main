@@ -1,0 +1,11 @@
+{
+  "name": "sequelize-bounties-main",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/SEI-ATL-3-8/sequelize-bounties-main",
+  "license": "MIT",
+  "dependencies": {
+    "pg": "^8.5.1",
+    "sequelize": "^6.6.2"
+  }
+}

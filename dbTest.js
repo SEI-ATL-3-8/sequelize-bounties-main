@@ -179,7 +179,7 @@ hanSoloInTrouble() */
 
 // 3. Look up Bobba Fett, save him to a variable. Look up his bounty with bobbaFett.getBounty(), and log that variable.
 
-let bobaFettCheck = async () => {
+/* let bobaFettCheck = async () => {
     try {
         let bobaFett = await models.hunter.findOne({
             where: {
@@ -192,4 +192,60 @@ let bobaFettCheck = async () => {
         console.log(error.message)
     }
 }
-bobaFettCheck()
+bobaFettCheck() */
+
+// 4. Add Dengar to Han's hunters, the same way we did in step 1.
+
+/* let hanSoloTargetLocked = async () => {
+    try {
+        let hanSolo = await models.bounty.findOne({
+            where: {
+                name: 'Han Solo'
+            }
+        })
+        let dengar = await models.hunter.findOne({
+            where: {
+                name: 'Dengar'
+            }
+        })
+        hanSolo.addHunter(dengar)
+
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+hanSoloTargetLocked() */
+
+// 5. Repeat step 2, and the list should now include both Boba Fett and Dengar.
+
+/* let hanSoloInTrouble = async () => {
+    try {
+        let hanSolo = await models.bounty.findOne({
+            where: {
+                name: 'Han Solo'
+            }
+        })
+        let hanSoloHunters = await hanSolo.getHunters()
+        console.log(hanSoloHunters)
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+hanSoloInTrouble() */
+
+// 6. Repeat step 3, but with Dengar instead of Bobba Fett.
+
+/* let dengarCheck = async () => {
+    try {
+        let dengar = await models.hunter.findOne({
+            where: {
+                name: 'Dengar'
+            }
+        })
+        let dengarBounties = await dengar.getBounty()
+        console.log(dengarBounties)
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+dengarCheck() */

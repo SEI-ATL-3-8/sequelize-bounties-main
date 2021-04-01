@@ -1,0 +1,5 @@
+sequelize model:generate --name=book --attributes title:string,author:string,publishedYear:integer
+
+sequelize model:generate --name=bounty --attributes name:string,wantedFor:string,captured:boolean
+
+sequelize model:generate --name=hunter --attributes name:string,client:string,active:boolean

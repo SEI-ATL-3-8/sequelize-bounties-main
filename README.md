@@ -59,7 +59,7 @@ Answer the following questions:
 
 <details>
   <summary>Which table should get the foreign key?</summary>
-  hunters: the child entity always gets the foriegn key in a 1-t-m relationship.
+  hunters: the child entity always gets the foreign key in a 1-t-m relationship.
 </details>
 
 <details>
@@ -99,7 +99,7 @@ models.<child-name>.belongsTo(models.<parent-name>)
 Note that if these aren't working, you should check your associations from the previous section!
 
 Back in our dbTest.js file, complete these one at a time:
-1. Look up Han Solo and save him to a variable. Look up Bobba Fett and assign him to a variable too. Associate the two with `hanSolo.addHunters(bobbaFett)`
+1. Look up Han Solo and save him to a variable. Look up Bobba Fett and assign him to a variable too. Associate the two with `hanSolo.addHunters(bobaFett)`
 1. Look up Han Solo, save him to a variable. Look up his hunters with `hanSolo.getHunters()` and save the result to a variable, then log that variable.
 1. Look up Bobba Fett, save him to a variable. Look up his bounty with `bobbaFett.getBounty()`, and log that variable.
 1. Add Dengar to Han's hunters, the same way we did in step 1.

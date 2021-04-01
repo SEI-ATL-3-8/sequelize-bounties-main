@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "Beast666",
+    "database": "sequelize_bounties",
+    "host": "127.0.0.1",
+    "dialect": "postgresql"
+  }
+}

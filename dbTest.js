@@ -20,11 +20,11 @@ const models = require('./models')
 //   active: true
 // })
 
-models.hunters.create({
-  name: 'Dengar',
-  client: 'Mercurial Swift',
-  active: false
-})
+// models.hunters.create({
+//   name: 'Dengar',
+//   client: 'Mercurial Swift',
+//   active: false
+// })
 var bounties
 
 models.bounties.findAll().then(res => {
@@ -67,3 +67,33 @@ let removeDengar = async () => {
 // removeDengar();
 
 
+var hanSolo;
+var bobaFett;
+
+async function getBounty(bounty_name){
+	let b = await models.bounties.findOne({
+		where:{
+			name: bounty_name
+		}
+	})
+	return b;
+}
+
+async function getHunter(hunter_name){
+	let h = await models.hunters.findOne({
+		where:{
+			name: hunter_name
+		}
+	})
+	return h;
+}
+
+function assignBounty(hunter, bounty){
+	bounty.addHunter(hunter);
+}
+
+
+getBounty("Han Solo").then(res => hanSolo=res)
+	.then(res => getHunter("Boba Fett")
+        .then(res => bobaFett=res))
+	.then(res => assignBounty(bobaFett, hanSolo));

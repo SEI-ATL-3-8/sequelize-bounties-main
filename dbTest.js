@@ -75,5 +75,21 @@ const models = require('./models/')
 //         client: 'Mercurial Swift',
 //         active: false
 //     })
-//3
-//4
+
+
+
+//Using association
+const assocOne = async () => {
+    const hanSolo = await models.bounty.findOne({
+        where: {
+            name: 'Hans Solo'
+        }
+    })
+    const bobbaFett = await models.hunter.findOne({
+        where: {
+            name: 'Boba Fett'
+        }
+    })
+    hanSolo.addHunter(bobbaFett)
+}
+assocOne();

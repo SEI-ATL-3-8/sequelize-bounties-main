@@ -9,6 +9,24 @@ const models = require('./models')
     reward: 500000
 }) */
 
+// Reward for Han didn't get added, so here's a bonus update crud
+
+/* let hanSoloReward = async () => {
+    try {
+        let hanSolo = await models.bounty.findOne({
+            where: {
+                name: 'Han Solo'
+            }
+        })
+        hanSolo.update({
+            reward: 500000
+        })
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+hanSoloReward() */
+
 // 2. Make a hunter with a name of Boba Fett, a client of Jabba the Hut, and an active of true.
 
 /* models.hunter.create({
@@ -102,7 +120,7 @@ dengarBye() */
 // 8. Ok recreate Dengar. The deletion was just for practice. We'll actually need him later.
 // Reusing the code from question 3
 
-let dengarCheck = async () => {
+/* let dengarCheck = async () => {
     try {
         let dengar = await models.hunter.findOrCreate({
             where: {
@@ -117,4 +135,61 @@ let dengarCheck = async () => {
     }
 }
 
-dengarCheck()
+dengarCheck() */
+
+// Association
+// 1. Look up Han Solo and save him to a variable. Look up Boba Fett and assign him to a variable too. Associate the two with hanSolo.addHunters(bobaFett)
+
+/* let hanSoloTargetLocked = async () => {
+    try {
+        let hanSolo = await models.bounty.findOne({
+            where: {
+                name: 'Han Solo'
+            }
+        })
+        let bobaFett = await models.hunter.findOne({
+            where: {
+                name: 'Boba Fett'
+            }
+        })
+        hanSolo.addHunter(bobaFett)
+
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+hanSoloTargetLocked() */
+
+// 2. Look up Han Solo, save him to a variable. Look up his hunters with hanSolo.getHunters() and save the result to a variable, then log that variable.
+
+/* let hanSoloInTrouble = async () => {
+    try {
+        let hanSolo = await models.bounty.findOne({
+            where: {
+                name: 'Han Solo'
+            }
+        })
+        let hanSoloHunters = await hanSolo.getHunters()
+        console.log(hanSoloHunters)
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+hanSoloInTrouble() */
+
+// 3. Look up Bobba Fett, save him to a variable. Look up his bounty with bobbaFett.getBounty(), and log that variable.
+
+let bobaFettCheck = async () => {
+    try {
+        let bobaFett = await models.hunter.findOne({
+            where: {
+                name: 'Boba Fett'
+            }
+        })
+        let bobaFettBounties = await bobaFett.getBounty()
+        console.log(bobaFettBounties)
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+bobaFettCheck()

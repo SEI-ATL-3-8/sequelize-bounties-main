@@ -8,3 +8,5 @@ sequelize model:generate --name=hunter --attributes name:string,client:string,ac
 
 
 sequelize migration:generate --name=add-reward-to-bounties
+
+sequelize migration:generate --name=add-bountyId-to-hunters

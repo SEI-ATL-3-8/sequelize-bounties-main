@@ -41,7 +41,7 @@ let updateHanSolo = async () => {
         captured: true
     })
 }
-updateHanSolo()
+// updateHanSolo()
 
 //q7
 let destroyDengar = async () =>{
@@ -60,3 +60,45 @@ let destroyDengar = async () =>{
 //     client:'Mercurial Swift',
 //     active:false
 // })
+////////////////////PART2//////////////////////
+//q1
+const hanAndFett = async () => {
+    const han = await models.bounty.findOne({ where:{name:'Han Solo'}})
+    const fett = await models.hunter.findOne({where:{name:'Boba Fett'}})
+    han.addHunters(fett)
+}
+hanAndFett()
+//q2
+
+const hansHunter = async () => {
+    const han = await models.bounty.findOne({ where:{name:'Han Solo'}})
+    const hunterforHan = await han.getHunters()
+    console.log(hunterforHan)
+}
+hansHunter()
+
+//q3
+const bobbasBounty = async()=>{
+    const bobba = await models.hunter.findOne({where:{name:'Boba Fett'}})
+    const bountyforBobba = await bobba.getBounty()
+    console.log(bountyforBobba)
+}
+bobbasBounty()
+
+//q4
+const hanAndDengar = async () => {
+    const han = await models.bounty.findOne({ where:{name:'Han Solo'}})
+    const dengar = await models.hunter.findOne({where:{name:'Dengar'}})
+    han.addHunters(dengar)
+}
+hanAndDengar()
+
+//q5???
+
+//q6
+const dengarsBounty = async()=>{
+    const den = await models.hunter.findOne({where:{name:'Dengar'}})
+    const bountyforden = await den.getBounty()
+    console.log(bountyforden)
+}
+dengarsBounty()

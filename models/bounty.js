@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.hunter.hasMany(models.bounty)
+      models.bounty.hasMany(models.hunter)
     }
   };
   bounty.init({

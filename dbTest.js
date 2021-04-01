@@ -46,15 +46,15 @@ const { Op } = require('sequelize')
 //     captured: false
 // })
 
-hunter.create({
-    name: 'Boba Fett',
-    client: 'Jabba the Hut',
-    active: true
-})
-hunter.findOrCreate({
-    where: {name: 'Dengar'},
-    defaults: {client: 'Mercurial Swift',active: false}
-})
+// hunter.create({
+//     name: 'Boba Fett',
+//     client: 'Jabba the Hut',
+//     active: true
+// })
+// hunter.findOrCreate({
+//     where: {name: 'Dengar'},
+//     defaults: {client: 'Mercurial Swift',active: false}
+// })
 
 // // #4
 // bounty.findAll().then(res => {
@@ -86,9 +86,16 @@ hunter.findOrCreate({
 // ========================================
 
 // #1
-// const numOne = async () => {
-//     const x = await bounty.findOne({where:{name:{[Op.iLike]:'%Han%'}}})
-//     const y = await hunter.findOne({where:{name:'Boba Fett'}})
-//     x.addHunter(y)
-// }
-// numOne().then(res => console.log(res))
+const numOne = async () => {
+    try {
+        const x = await bounty.findOne({where:{name:'Han Solo'}})
+        const y = await hunter.findOne({where:{name:'Boba Fett'}})
+        x.addHunters(y)
+    } catch (error) {
+        console.log('Error' ,error)
+    }
+}
+numOne().then(res => console.log(res))
+
+// #2
+// I finally got #1 to work...I'm tired...goodnight

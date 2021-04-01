@@ -83,3 +83,77 @@ const models = require('./models/')
 //     client: 'Mercurial Swift',
 //     active: false
 // })
+// association
+1.
+// const makeHanAndBobaKiss = async () => {
+//     try {
+//         const hanSolo = await models.bounty.findOne({where:{name: 'Han Solo'}})
+//         bobaFett = await models.hunter.findOne({where:{name: 'Boba Fett'}})
+
+//         hanSolo.addHunters(bobaFett);
+//     } catch (error) {
+//         console.log('error');
+//     }
+// }
+// makeHanAndBobbaKiss()
+2.
+// const hanHunters = async () => {
+//     try {
+//         let hanSolo = await models.bounty.findOne({where:{name:'Han Solo'}})
+//         let hunters = await hanSolo.getHunters()
+//         console.log(hunters)   
+//     } catch (error) {
+//         console.log('error')
+//     }
+// }
+// hanHunters()
+3.
+// const bobBounty = async () => {
+//     try {
+//         let bobaFett = await models.hunter.findOne({where:{name: 'Boba Fett'}})
+//         let bounty = await bobaFett.getBounty()
+//         console.log(bounty)
+//     } catch (error) {
+        
+//     }
+// }
+// bobBounty()
+4.
+// const makeBobaAndDengarKiss = async () => {
+//     try {
+//         let hanSolo = await models.bounty.findOne({where:{name:'Han Solo'}})
+//         let dengar = await models.hunter.findOne({where:{name: 'Dengar'}})
+//         hanSolo.addHunters(dengar)
+        
+//     } catch (error) {
+//         console.log('error')
+//     }
+
+// }
+// makeBobaAndDengarKiss()
+5. 
+// const hanHuntersPartTwoTheReturnOfTheHunters = async () => {
+//     try {
+//         let hanSolo = await models.bounty.findOne({where:{name:'Han Solo'}})
+//         let hunters = await hanSolo.getHunters()
+//         console.log(hunters)
+        
+//     } catch (error) {
+//         console.log('error')
+//     }
+
+// }
+// hanHuntersPartTwoTheReturnOfTheHunters()
+6.
+whoDengarGonGetDisTime = async () => {
+    try {
+        let dengar = await models.hunter.findOne({where:{name:'Dengar'}})
+        let bounty = await dengar.getBounty()
+        console.log(bounty)
+        
+    } catch (error) {
+        console.log('error')
+    }
+
+}
+whoDengarGonGetDisTime()

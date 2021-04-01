@@ -63,3 +63,42 @@
 
         // models.hunter.create({name: 'Dengar', client: 'Mercurial Swift', active: 'false'})
 
+
+                    // Association 
+
+1.         
+        // const models = require('./models/')
+
+        // const addHunters = async () => {
+        //     const hanSolo = await models.bounty.findOne({where: { name: 'Han Solo'}})
+        //     const bobbaFett = await models.hunter.findOne({where: { name: 'Bobba Fett'} })
+
+        //        hanSolo.addHunters(bobbaFett)
+              
+        // }
+        // addHunters() 
+        // Ask about association because it's still confusing
+
+2.      
+        // const models = require('./models/')
+
+        // const getHunters = async () => {
+        //         const hanSolo = await models.bounty.findOne({where: { name: 'Han Solo'}})
+                
+        //            console.log(hanSolo.getHunters())
+                  
+        //     }
+        //     getHunters()
+
+3. 
+        //  const models = require('./models/')
+
+        //  const getHunters = async () => {
+        
+        //     const bobbaFett = await models.hunter.findOne({where: { name: 'Bobba Fett'} })
+
+        //        hanSolo.addHunters(bobbaFett)
+              
+        // }
+        
+        //Stopped here because I really don't get what I am doing with associations, many questions shall be asked!

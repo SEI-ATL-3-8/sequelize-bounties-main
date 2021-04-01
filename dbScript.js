@@ -1,6 +1,8 @@
 // grab models
 const models = require('./models');
 
+/* ============== Part 1 - Basic CRUD ============== */
+
 // 1. Make a bounty with a name of Han Solo, wantedFor of Owing Money, reward of 500000, and captured of false.
 
 // try {
@@ -111,3 +113,92 @@ async function sorryDengar ()
     }
 }
 // sorryDengar();
+
+
+/* ============== Part 2 - Using Our Associations ============== */
+
+// 1. Look up Han Solo and save him to a variable. Look up Bobba Fett and assign him to a variable too. Associate the two with hanSolo.addHunters(bobbaFett)
+
+async function bobaAddHan ()
+{
+    try {
+        // grab Han Solo
+        const hanSolo = await models.bounty.findOne({ where: { name: 'Han Solo' } });
+        // grab Boba Fett
+        const bobaFett = await models.hunter.findOne({ where: { name: 'Boba Fett' } });
+
+        hanSolo.addHunters(bobaFett);
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+// bobaAddHan();
+
+// 2. Look up Han Solo, save him to a variable. Look up his hunters with hanSolo.getHunters() and save the result to a variable, then log that variable.
+
+async function getHansHunters ()
+{
+    try {
+        // grab Han Solo
+        const hanSolo = await models.bounty.findOne({ where: { name: 'Han Solo' } });
+
+        const hunters = await hanSolo.getHunters();
+        console.log(hunters);
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+// getHansHunters();
+
+// 3. Look up Bobba Fett, save him to a variable. Look up his bounty with bobbaFett.getBounty(), and log that variable.
+
+async function getBobasBounty ()
+{
+    try {
+        // grab Boba Fett
+        const bobaFett = await models.hunter.findOne({ where: { name: 'Boba Fett' } });
+
+        const bounty = await bobaFett.getBounty();
+        console.log(bounty);
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+// getBobasBounty();
+
+// 4. Add Dengar to Han's hunters, the same way we did in step 1.
+
+async function dengarAddHan ()
+{
+    try {
+        // grab Han Solo
+        const hanSolo = await models.bounty.findOne({ where: { name: 'Han Solo' } });
+        // grab Dengar
+        const dengar = await models.hunter.findOne({ where: { name: 'Dengar' } });
+
+        hanSolo.addHunters(dengar);
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+// dengarAddHan();
+
+// 5. Repeat step 2, and the list should now include both Bobba Fett and Dengar.
+
+// getHansHunters();
+
+// 6. Repeat step 3, but with Dengar instead of Bobba Fett.
+
+async function getDengarsBounty ()
+{
+    try {
+        // grab Dengar
+        const dengar = await models.hunter.findOne({ where: { name: 'Dengar' } });
+
+        const bounty = await dengar.getBounty();
+        console.log(bounty);
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+// getDengarsBounty();

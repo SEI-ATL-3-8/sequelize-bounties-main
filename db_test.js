@@ -12,11 +12,11 @@ const models = require('./models')
 //     active: true
 //   })
 
-  models.hunter.create({
-    name: 'Denger',
-    client: 'Mercurial Swift',
-    active: false
-  })
+  // models.hunter.create({
+  //   name: 'Denger',
+  //   client: 'Mercurial Swift',
+  //   active: false
+  // })
 
 
 // models.hunter.findAll(
@@ -44,3 +44,19 @@ const models = require('./models')
 //         name: 'Denger'
 //     }
 // }).then();
+
+
+
+//  models.bounty.findOne({
+//       where: {
+//         name: 'Han Solo'
+//       }
+//     }).then(han);
+
+//     models.bounty.findOne({
+//       where: {
+//         name: 'Boba Fett'
+//       }
+//     }).then(boba);
+
+//     han.addHunters(boba)
